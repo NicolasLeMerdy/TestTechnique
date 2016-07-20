@@ -1,26 +1,28 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Xml;
+using System.Numerics;
+using log4net.DateFormatter;
 
 namespace TestTechnique {
     public class WebMethod {
 
-        public double FibonacciSequenceCalcul(double n) {
+        public BigInteger FibonacciSequenceCalcul(double n) {
             try {
 
                 if (n <= 0 || n > 100) {
                     return -1;
                 }
 
-                double primValue = 0;
-                double secondValue = 1;
+                BigInteger primValue = 0;
+                BigInteger secondValue = 1;
 
-                for (var i = 1; i <= n; i++) {
+                for (var i = 1; i <= n; i++)
+                {
                     var concatValue = primValue;
                     primValue = secondValue;
                     secondValue = concatValue + secondValue;
                 }
-
                 return primValue;
             }
             catch (Exception ex) {

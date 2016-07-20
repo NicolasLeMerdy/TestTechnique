@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Web.Script.Serialization;
-using System.Web.Script.Services;
+using System.Numerics;
 using System.Web.Services;
 
 namespace TestTechnique {
@@ -15,14 +14,14 @@ namespace TestTechnique {
     public class WebService : System.Web.Services.WebService {
 
         [WebMethod(Description = "The Fibonacci service takes input an integer N, and return the Nhh value in the Fibonacci sequence")]
-        public double Fibonacci(int n) {
+        public string Fibonacci(int n) {
             try {
                 WebMethod fibo = new WebMethod();
-                return fibo.FibonacciSequenceCalcul(n);
+                return fibo.FibonacciSequenceCalcul(n).ToString();
             }
             catch (Exception ex) {
                 Log.LogError("Fibonacci", ex);
-                return -1;
+                return "-1";
             }
 
         }
