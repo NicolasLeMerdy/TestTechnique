@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Numerics;
 using System.Web.Services;
 
 namespace TestTechnique {
@@ -14,8 +13,9 @@ namespace TestTechnique {
     public class WebService : System.Web.Services.WebService {
 
         [WebMethod(Description = "The Fibonacci service takes input an integer N, and return the Nhh value in the Fibonacci sequence")]
-        public string Fibonacci(int n) {
+        public string Fibonacci(double n) {
             try {
+                
                 WebMethod fibo = new WebMethod();
                 return fibo.FibonacciSequenceCalcul(n).ToString();
             }
@@ -23,7 +23,6 @@ namespace TestTechnique {
                 Log.LogError("Fibonacci", ex);
                 return "-1";
             }
-
         }
 
         [WebMethod(Description = @"The XmlToJson service takes input a string xml and returns the json form of the xml string, lt will return ""Bad Xml format"" if the input string is not a well - formed xml")]
@@ -36,7 +35,6 @@ namespace TestTechnique {
                 Log.LogError("XmlToJson", ex);
                 return "Bad Xml format";
             }
-
         }
     }
 }

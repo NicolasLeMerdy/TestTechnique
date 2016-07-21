@@ -15,6 +15,33 @@ namespace TestTechnique.Tests {
         }
 
         [TestMethod()]
+        public void FibonacciTestFloat() {
+            WebMethod fibonacci = new WebMethod();
+            BigInteger expected = -1;
+            const double n = 6.5;
+            BigInteger actual = fibonacci.FibonacciSequenceCalcul(n);
+            Assert.AreEqual(expected, actual, "Calculation Error");
+        }
+
+        [TestMethod()]
+        public void FibonacciTestNegative() {
+            WebMethod fibonacci = new WebMethod();
+            BigInteger expected = -1;
+            const double n = -6;
+            BigInteger actual = fibonacci.FibonacciSequenceCalcul(n);
+            Assert.AreEqual(expected, actual, "Calculation Error");
+        }
+
+        [TestMethod()]
+        public void FibonacciTestPositive() {
+            WebMethod fibonacci = new WebMethod();
+            BigInteger expected = -1;
+            const double n = 106;
+            BigInteger actual = fibonacci.FibonacciSequenceCalcul(n);
+            Assert.AreEqual(expected, actual, "Calculation Error");
+        }
+
+        [TestMethod()]
         public void XmlToJonReaderTest() {
             WebMethod xmlToJson = new WebMethod();
             const string expected = @"{""foo"":""bar""}";

@@ -2,23 +2,26 @@
 using System;
 using System.Xml;
 using System.Numerics;
-using log4net.DateFormatter;
 
 namespace TestTechnique {
     public class WebMethod {
 
         public BigInteger FibonacciSequenceCalcul(double n) {
-            try {
+
+            BigInteger primValue = 0;
+            BigInteger secondValue = 1;
+
+            try{
+
+                if(Math.Abs(n % 1) > 0) {
+                    return -1;
+                }
 
                 if (n <= 0 || n > 100) {
                     return -1;
                 }
 
-                BigInteger primValue = 0;
-                BigInteger secondValue = 1;
-
-                for (var i = 1; i <= n; i++)
-                {
+                for (var i = 1; i <= n; i++) {
                     var concatValue = primValue;
                     primValue = secondValue;
                     secondValue = concatValue + secondValue;
@@ -29,14 +32,17 @@ namespace TestTechnique {
                 Log.LogError("Fibonacci", ex);
                 return -1;
             }
+            finally {
+                Log.LogResponse("Fibonacci Succes" + "n = " + n + "response = " + primValue);
+            }
         }
 
         public string XmlToJonReader(string xml) {
-            try {
+            try{
 
-                XmlDocument Docxml = new XmlDocument();
-                Docxml.LoadXml(xml);
-                string jsonText = JsonConvert.SerializeXmlNode(Docxml);
+                XmlDocument docxml = new XmlDocument();
+                docxml.LoadXml(xml);
+                string jsonText = JsonConvert.SerializeXmlNode(docxml);
                 return jsonText;
 
             }
