@@ -22,7 +22,7 @@ namespace TestTechnique {
             Logger.Error(msg, ex);
         }
 
-        public static void LogResponse(string msg){
+        public static void LogResponse(string msg) {
             Logger.Info(msg);
         }
     }

@@ -15,12 +15,12 @@ namespace TestTechnique {
         [WebMethod(Description = "The Fibonacci service takes input an integer N, and return the Nhh value in the Fibonacci sequence")]
         public string Fibonacci(double n) {
             try {
-                
+
                 WebMethod fibo = new WebMethod();
                 return fibo.FibonacciSequenceCalcul(n).ToString();
             }
             catch (Exception ex) {
-                Log.LogError("Fibonacci", ex);
+                Log.LogError(DateTime.Now + " Fibonacci", ex);
                 return "-1";
             }
         }
