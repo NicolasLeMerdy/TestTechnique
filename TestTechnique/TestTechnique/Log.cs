@@ -21,5 +21,9 @@ namespace TestTechnique {
         public static void LogError(string msg, Exception ex) {
             Logger.Error(msg, ex);
         }
+
+        public static void LogResponse(string msg) {
+            Logger.Info(msg);
+        }
     }
 }
